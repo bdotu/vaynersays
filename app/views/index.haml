@@ -1,0 +1,64 @@
+!!!
+%html{:lang => "en"}
+  %head
+    / Basic Page Needs
+    %meta{:charset => "utf-8"}
+    %title VaynerSays
+    %meta{:name => "description", :content => "Gary Vaynerchuk social media content aggregator."}
+    %meta{:name => "author", :content => "Bright Dotu"}
+
+    / Mobile Specific Metas
+    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1"}
+
+    / FONT
+    %link{:href => "//fonts.googleapis.com/css?family=Raleway:400,300,600", :rel => "stylesheet", :type => "text/css"}
+
+    / CSS
+    %link{:rel => "stylesheet", :href => "/normalize.css"}
+    %link{:rel => "stylesheet", :href => "/skeleton.css"}
+    %link{:rel => "stylesheet", :href => "/flex.css"}
+
+    / Favicon
+    %link{:rel => "icon", :type => "image/ico", :href => "/favicon.ico"}
+
+  -# %body
+    / Primary Page Layout
+    .container
+      .row
+        .one-half.column{:style => "margin-top: 5%"}
+          %h4 Today, Gary Vaynerchuk said:
+          %p Hello, World!
+
+      #footer
+        Built by
+        %a{:href => "http://brightdotu.com"}
+          %i Bright
+
+
+
+  %body
+    / Primary Page Layout
+    .container{:align => "center"}
+      .row
+        .eleven.columns{:style => "margin-top: 5%"}
+          %h2 Today, Gary Vaynerchuk says:
+          -# %p Hello, World!
+          .flex-container
+            %section
+              %h4 Youtube Goes Here
+
+            %section.social-media
+              #fb
+                %p This will hold the FB feed.
+              #twt
+                %p
+                  %i This will hold the Twitter feed.
+              #inst
+                %p
+                  %strong This will hold the Instagram feed.
+
+    / Fix footer to align center
+    #footer
+      Built by
+      %a{:href => "http://brightdotu.com"}
+        %i Bright

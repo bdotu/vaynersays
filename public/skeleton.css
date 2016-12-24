@@ -127,10 +127,39 @@ body {
   font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #222; }
 
+/* Custom Css */
 #footer {
   font-size: 0.5em;
   position: absolute;
   bottom: 0;
+}
+
+.dropdown {
+  /*position: absolute;*/
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: inherit;;
+  background-color: inherit;
+  min-width: 160px;
+  overflow: auto;
+}
+
+.dropdown-content a {
+  color: inherit;
+  padding: inherit;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {
+  background-color: inherit;
+}
+
+.show {
+  display: block;
 }
 
 /* Typography

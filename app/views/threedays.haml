@@ -31,10 +31,10 @@
     .container{:align => "center"}
       .row
         .eleven.columns{:style => "margin-top: 5%"}
-          %button{:onclick => "dropdownFnc()", :class => "dropdown"} Today
+          %button{:onclick => "dropdownFnc()", :class => "dropdown"} 3 Days Ago
           .dropdown-content{:id => "myDropdown"}
+            %a{:href => "/"} Today
             %a{:href => "yesterday"} Yesterday
-            %a{:href => "threedays"} 3 Days Ago
           %h3 Gary Vaynerchuk said:
           .flex-container
             %section

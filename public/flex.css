@@ -37,13 +37,21 @@ footer {background: #aaa;color:white;}*/
   overflow-y: scroll;
 }
 
+#fb {
+  border-left: 1px solid gray;
+}
+
 #twt {
   border-left: 1px solid gray;
   border-right: 1px solid gray;
 }
 
+#inst {
+  border-right: 1px solid gray;
+}
+
 @media all and (min-width: 768px) {
     .section {text-align:left;-webkit-flex: 1 auto;flex:1 auto;-webkit-order:1;order:1;}
-    .article {-webkit-flex:5 0px;flex:5 0px;-webkit-order:2;order:2;}
+    .social-media {-webkit-flex:5 0px;flex:5 0px;-webkit-order:2;order:2;}
     footer {-webkit-order:3;order:3;}
 }

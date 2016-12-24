@@ -7,6 +7,12 @@ require 'haml'
 get '/' do
   # redirect 'index.html' #Renders index.html
   haml :index
+  # if params[:page].nil?
+  #   haml :index
+  # elsif params[:page] == "yesterday"
+  #   haml :yesterday
+  # elsif params[:page] == "threedays"
+  #   haml :threedays
 end
 
 get '/yesterday' do
@@ -15,4 +21,13 @@ end
 
 get '/threedays' do
   haml :threedays
+end
+
+# Error Handling
+not_found do
+  haml :errr
+end
+
+error do
+  haml :errr
 end

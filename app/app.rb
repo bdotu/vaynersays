@@ -8,6 +8,8 @@ require './lib/videos'
 
 get '/' do
   # redirect 'index.html' #Renders index.html
+  @youtube_url = VideoAggregator.new
+  # @youtube_url.create_playlist_url
   haml :index
   # if params[:page].nil?
   #   haml :index

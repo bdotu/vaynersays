@@ -30,7 +30,7 @@
     / Primary Page Layout
     .container{:align => "center"}
       .row
-        .eleven.columns{:style => "margin-top: 5%"}
+        .eleven.columns{:style => "margin-top: 0%"}
           %button{:onclick => "dropdownFnc()", :class => "dropdown"} Today
           .dropdown-content{:id => "myDropdown"}
             %a{:href => "yesterday"} Yesterday
@@ -39,25 +39,22 @@
           .flex-container
             %section
               %h6
-                %a{:href => "https://www.youtube.com/user/GaryVaynerchuk/videos"} Youtube Videos
-                goes here! (Query based on date posted)
+                %iframe{:id => "player", :type => "text/html", :width => "640", :height => "390", :src => @youtube_url.create_playlist_url, :frameborder => "0"}
+                -# %a{:href => "https://www.youtube.com/user/GaryVaynerchuk/videos"} Youtube Videos
+                -# goes here! (Query based on date posted)
 
             %section.social-media
               #fb
                 %p
-                  %a{:href => "https://www.facebook.com/gary/"}FB feed
-                  goes here!
+                  %a{:href => "https://www.facebook.com/gary/"}Facebook Feed
               #twt
                 %p
-                  %a{:href => "https://twitter.com/garyvee"} Tweets
-                  go here!
+                  %a{:href => "https://twitter.com/garyvee"}Tweets
               #inst
                 %p
-                  %a{:href => "https://www.instagram.com/garyvee/"}Instagram feed
-                  goes here!
+                  %a{:href => "https://www.instagram.com/garyvee/"}Instagram Feed
 
-    / Fix footer to align based on container
-    #footer
+    #footer{:align => "center"}
       Built by
-      %a{:href => "http://brightdotu.com"}
+      %a{:href => "http://brightdotu.com", :target => "_blank"}
         %i Bright

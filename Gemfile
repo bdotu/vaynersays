@@ -11,3 +11,6 @@ gem 'shotgun'
 
 # Twitter Gem
 gem 'twitter'
+
+# HTTP request Gem
+gem 'typhoeus'

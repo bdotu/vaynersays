@@ -1,5 +1,7 @@
 require 'sinatra'
 require 'haml'
+require 'json'
+require './lib/videos'
 
 # Points to public to access index.html
 # set :public_folder, 'public'
@@ -22,6 +24,10 @@ end
 get '/threedays' do
   haml :threedays
 end
+
+# get '/response' do
+#   puts get_videos.to_json
+# end
 
 # Error Handling
 not_found do

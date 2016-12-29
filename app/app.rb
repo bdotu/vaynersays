@@ -20,10 +20,12 @@ get '/' do
 end
 
 get '/yesterday' do
+  @youtube_url = VideoAggregator.new
   haml :yesterday
 end
 
 get '/threedays' do
+  @youtube_url = VideoAggregator.new
   haml :threedays
 end
 

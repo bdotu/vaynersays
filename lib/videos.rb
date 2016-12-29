@@ -13,7 +13,7 @@ class VideoAggregator
   # @video_ids = []
   BASE_URL = "http://www.youtube.com/embed/"
 
-  def get_videos
+  def get_videos(day)
     response = Typhoeus::Request.get(
       "https://www.googleapis.com/youtube/v3/playlistItems?part=#{PART}&maxResults=#{MAX_RESULTS}&playlistId=#{PLAYLIST_ID}&key=#{API_KEY}",
       headers: { 'Content-Type' => "application/json" }
@@ -23,7 +23,7 @@ class VideoAggregator
 
     # Gets urls of videos uploaded within last 24 hours from current DateTime
     data['items'].each do |item|
-      if item['snippet']['publishedAt'] > (DATE - 1).to_s
+      if item['snippet']['publishedAt'] > (day).to_s
         video_id = item['snippet']['resourceId']['videoId']
         (@video_ids ||=[]).push(video_id) # Create video_ids array and add video_id
       end
@@ -34,9 +34,9 @@ class VideoAggregator
     # puts "----------------------------------------------"
   end
 
-  def create_playlist_url
-    get_videos
-    if @video_ids.any?
+  def create_playlist_url(day)
+    get_videos(day)
+    if @video_ids.length > 1
       @playlist_url = "#{BASE_URL}#{@video_ids.first}?playlist="
       @video_ids.shift # Drop first video_id
       @rem_video_ids = @video_ids
@@ -44,13 +44,16 @@ class VideoAggregator
       for video_id in @rem_video_ids
         @playlist_url = "#{@playlist_url}#{video_id},"
       end
+    elsif @video_ids.length == 1
+      @playlist_url = "#{BASE_URL}#{@video_ids.first}"
     else
       return "Something went wrong with creating the playlist"
     end
     return @playlist_url
+    # puts @playlist_url
   end
 end
 
-# content = VideoAggregator.new
-# content.get_videos
-# content.create_playlist_url
+content = VideoAggregator.new
+content.get_videos(Date.today.prev_day)
+# content.create_playlist_url(Date.today.prev_day)

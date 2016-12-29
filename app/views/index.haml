@@ -39,7 +39,7 @@
           .flex-container
             %section
               %h6
-                %iframe{:id => "player", :type => "text/html", :width => "640", :height => "390", :src => @youtube_url.create_playlist_url, :frameborder => "0"}
+                %iframe{:id => "player", :type => "text/html", :width => "640", :height => "390", :src => @youtube_url.create_playlist_url(Date.today), :frameborder => "0"}
                 -# %a{:href => "https://www.youtube.com/user/GaryVaynerchuk/videos"} Youtube Videos
                 -# goes here! (Query based on date posted)
 

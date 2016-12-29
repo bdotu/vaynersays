@@ -3,20 +3,24 @@ require 'haml'
 require 'json'
 require './lib/videos'
 
-# Points to public to access index.html
-# set :public_folder, 'public'
+# Review and fix when refactoring
+# ["/", "/yesterday", "/threedays"].each do |path|
+#   get path do
+#     @youtube_url = VideoAggregator.new
+#     if path == "/" do
+#       haml :index
+#     elsif path == "/yesterday"
+#       haml :yesterday
+#     elsif path == "/threedays"
+#       haml :threedays
+#     end
+#     # haml :index
+#   end
+# end
 
 get '/' do
-  # redirect 'index.html' #Renders index.html
   @youtube_url = VideoAggregator.new
-  # @youtube_url.create_playlist_url
   haml :index
-  # if params[:page].nil?
-  #   haml :index
-  # elsif params[:page] == "yesterday"
-  #   haml :yesterday
-  # elsif params[:page] == "threedays"
-  #   haml :threedays
 end
 
 get '/yesterday' do

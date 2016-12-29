@@ -1,30 +1,6 @@
 !!!
 %html{:lang => "en"}
-  %head
-    / Basic Page Needs
-    %meta{:charset => "utf-8"}
-    %title VaynerSays
-    %meta{:name => "description", :content => "Gary Vaynerchuk social media content aggregator."}
-    %meta{:name => "author", :content => "Bright Dotu"}
-
-    / Mobile Specific Metas
-    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1"}
-
-    / FONT
-    %link{:href => "//fonts.googleapis.com/css?family=Raleway:400,300,600", :rel => "stylesheet", :type => "text/css"}
-
-    / CSS
-    %link{:rel => "stylesheet", :href => "/normalize.css"}
-    %link{:rel => "stylesheet", :href => "/skeleton.css"}
-    %link{:rel => "stylesheet", :href => "/flex.css"}
-
-    / Favicon
-    %link{:rel => "icon", :type => "image/ico", :href => "/favicon.ico"}
-
-    / JS
-    / %script{:async => "async", :src => "https://platform.twitter.com/widjet.js", :charset => "utf-8"}
-    / %script{:type => "text/javascript", :src => "/instafeed.min.js"}
-    %script{:type => "text/javascript", :src => "/dropdown.js"}
+  = haml :head
 
   %body
     / Primary Page Layout
@@ -38,10 +14,7 @@
           %h3 Gary Vaynerchuk said:
           .flex-container
             %section
-              %h6
-                %iframe{:id => "player", :type => "text/html", :width => "640", :height => "390", :src => @youtube_url.create_playlist_url(Date.today.prev_day.prev_day), :frameborder => "0"}
-                -# %a{:href => "https://www.youtube.com/user/GaryVaynerchuk/videos"} Youtube Videos
-                -# goes here! (Query based on date posted)
+              = haml :videos, :locals => {:time => Date.today.prev_day.prev_day}
 
             %section.social-media
               #fb
@@ -57,8 +30,4 @@
                   %a{:href => "https://www.instagram.com/garyvee/"}Instagram feed
                   goes here!
 
-    / Fix footer to align based on container
-    #footer
-      Built by
-      %a{:href => "http://brightdotu.com"}
-        %i Bright
+    = haml :footer

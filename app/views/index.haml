@@ -15,15 +15,23 @@
           .flex-container
             %section
               / (DateTime.now - 1) ensures that videos from the last 24 hours are always returned.
-              = haml :videos, :locals => {:time => DateTime.now - 1}
+              - time = Date.today + 1
+              - if @youtube_url.create_playlist_url(time) == "http://www.youtube.com/embed/Ef9N1c3_JoA"
+                = flash[:info] = "No video posted in the last 24hrs. Enjoy this classic while you wait."
+                = haml :videos, :locals => {:time => time }
+              - else
+                = haml :videos, :locals => {:time => time}
+              -# Youtube Videos
 
             %section.social-media
               #fb
                 %p
                   %a{:href => "https://www.facebook.com/gary/"}Facebook Feed
+
               #twt
                 %p
-                  %a{:href => "https://twitter.com/garyvee"}Tweets
+                  %a{:class => "twitter-timeline", :href => "https://twitter.com/garyvee"}Tweets
+
               #inst
                 %p
                   %a{:href => "https://www.instagram.com/garyvee/"}Instagram Feed

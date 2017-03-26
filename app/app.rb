@@ -1,7 +1,11 @@
 require 'sinatra'
+require 'sinatra/flash'
 require 'haml'
 require 'json'
 require './lib/videos'
+
+enable :sessions
+# register Sinatra::Flash
 
 # Review and fix when refactoring
 # ["/", "/yesterday", "/threedays"].each do |path|

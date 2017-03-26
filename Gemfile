@@ -10,7 +10,9 @@ gem 'haml'
 gem 'shotgun'
 
 # Twitter Gem
-gem 'twitter'
+# gem 'twitter'
 
 # HTTP request Gem
 gem 'typhoeus'
+
+gem 'sinatra-flash'
